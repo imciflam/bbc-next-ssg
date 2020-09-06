@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "serve": "ts-node -O '{\"module\": \"commonjs\"}' ./server/index.ts",
+    "dev": "concurrently --kill-others \"yarn serve\" \"next\""
   },
   "dependencies": {
     "@types/styled-components": "^5.1.3",
