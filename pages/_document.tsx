@@ -9,6 +9,7 @@ import Document, {
 } from "next/document"
 
 export default class MyDocument extends Document {
+  // ctx contains a lot - pathname of a page URL, req for request, res for response and error object err
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
@@ -21,7 +22,7 @@ export default class MyDocument extends Document {
         })
 
       const initialProps = await Document.getInitialProps(ctx)
-
+      // initial props + theme
       return {
         ...initialProps,
         styles: (
@@ -32,6 +33,7 @@ export default class MyDocument extends Document {
         )
       }
     } finally {
+      // so the object is gonna be available for garbage collector
       sheet.seal()
     }
   }
@@ -46,6 +48,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="description" content={description} />
           <link href={fontsUrl} rel="stylesheet" />
+          {/*styles collected using ServerStyleSheet*/}
           {this.props.styles}
         </Head>
 
