@@ -1,1 +1,1 @@
-export * from "./Commentform"
+export * from "./CommentForm"
