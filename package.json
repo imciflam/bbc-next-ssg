@@ -1,5 +1,6 @@
 {
-  "name": "05-ssr-and-ssg",
+  "name": "ssr-and-ssg",
+  "homepage": "https://imciflam.github.io/bbc-next-ssg",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -7,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "serve": "ts-node -O '{\"module\": \"commonjs\"}' ./server/index.ts",
-    "dev": "concurrently --kill-others \"yarn serve\" \"next\""
+    "dev": "concurrently --kill-others \"yarn serve\" \"next\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@types/react-redux": "^7.1.9",
