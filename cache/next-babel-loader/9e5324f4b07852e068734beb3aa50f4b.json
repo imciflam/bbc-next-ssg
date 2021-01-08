@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from \"styled-components\";\nexport const Container = styled.nav.withConfig({\n  displayName: \"style__Container\",\n  componentId: \"n76byu-0\"\n})([\"& > *{margin-right:0.3em;}\"]);","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"const categoriesToPreRender = [\"Science\", \"Technology\", \"Arts\"];\nexport const categoryPaths = categoriesToPreRender.map(category => ({\n  params: {\n    id: category\n  }\n}));","map":null,"metadata":{},"sourceType":"module"}

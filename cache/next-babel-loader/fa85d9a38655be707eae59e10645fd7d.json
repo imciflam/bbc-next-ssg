@@ -1,0 +1,1 @@
+{"ast":null,"code":"export * from \"./PostCard\";","map":{"version":3,"sources":["/Users/user/Documents/GitHub/bbc-next-ssg/components/Post/index.ts"],"names":[],"mappings":"AAAA,cAAc,YAAd","sourcesContent":["export * from \"./PostCard\";\n"]},"metadata":{},"sourceType":"module"}
