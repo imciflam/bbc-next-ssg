@@ -1,15 +1,15 @@
-//wrapper for every page Next is going to render
-
 import React from "react"
 import Head from "next/head"
+import { AppContext } from "next/app"
 import { ThemeProvider } from "styled-components"
 
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import { Center } from "../components/Center"
 import { GlobalStyle, theme } from "../shared/theme"
+import { store } from "../store"
 
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle theme={theme} />
@@ -20,7 +20,6 @@ export default function MyApp({ Component, pageProps }) {
       <Header />
       <main className="main">
         <Center>
-          {/*render a current page and pass all the props required for it.*/}
           <Component {...pageProps} />
         </Center>
       </main>
@@ -28,3 +27,13 @@ export default function MyApp({ Component, pageProps }) {
     </ThemeProvider>
   )
 }
+
+MyApp.getInitialProps = async ({ Component, ctx }: AppContext) => ({
+  pageProps: {
+    ...(Component.getInitialProps
+      ? await Component.getInitialProps(ctx)
+      : {})
+  }
+})
+
+export default store.withRedux(MyApp)
